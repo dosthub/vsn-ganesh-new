@@ -1,0 +1,9 @@
+import type { NextConfig } from "next";
+const config: NextConfig = {
+  ...(process.env.STATIC_EXPORT === "1" ? { output: "export" as const } : {}),
+  trailingSlash: true,
+  images: { unoptimized: true },
+  turbopack: { root: process.cwd() },
+  outputFileTracingRoot: process.cwd(),
+};
+export default config;
